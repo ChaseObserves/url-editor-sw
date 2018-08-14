@@ -3,10 +3,10 @@
 var fs = require("fs");
 var express = require("express");
 
-var data = fs.readFileSync("all-blog-posts-CURRENT.json");
+var data = fs.readFileSync("all-blog-posts-CURRENT-new.json");
 var blogs = JSON.parse(data);
 
-var moreData = fs.readFileSync("all-recipes-CURRENT.json");
+var moreData = fs.readFileSync("full-recipes-CURRENT-new.json");
 var recipes = JSON.parse(moreData);
 
 // SET UP SERVER
@@ -127,8 +127,8 @@ function addURLrecipes() {
 function saveFile() {
   newBlogData = JSON.stringify(blogs, null, 2);
   newRecipeData = JSON.stringify(recipes, null, 2);
-  fs.writeFile("all-blog-posts-CURRENT-new.json", newBlogData, finished);
-  fs.writeFile("full-recipes-CURRENT-new.json", newRecipeData, finished);
+  fs.writeFile("all-blog-posts.json", newBlogData, finished);
+  fs.writeFile("full-recipes.json", newRecipeData, finished);
   function finished(err) {
     console.log("all set!");
   }
